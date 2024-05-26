@@ -1,0 +1,6 @@
+flask
+flask-SQLAlchemy
+celery
+redis
+uvicorn
+asgiref

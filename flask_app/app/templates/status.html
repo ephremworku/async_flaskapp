@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><Data> Collection Status</Data> Status</h1>
+        <p>Status: <span id="status">Checking...</span></p>
+        <p id="message"></p>
+        <button id="refresh">Refresh Status</button>
+    </div>
+    
+    <script>
+        function checkStatus(taskId) {
+            fetch(`/status/${taskId}/result`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status').innerText = data.state;
+                    if (data.state === 'SUCCESS') {
+                        document.getElementById('message').innerText = data.message;
+                    }
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const taskId = "{{ task_id }}";
+            document.getElementById('refresh').addEventListener('click', function() {
+                checkStatus(taskId);
+            });
+            checkStatus(taskId);
+        });
+    </script>
+</body>
+</html>
