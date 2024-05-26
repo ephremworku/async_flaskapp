@@ -1,1 +1,7 @@
 assyncflaskenv
+
+
+I have built a flask application for asynchronous task with celery and redis and uvicorn for asgi feature, I structured the application in a separate folder for celery and for flask and I call the folder , celery_worker and flask_app and for both I managed the architecture as clean architecture, inside the flask_app folder the architectures are 
+app/controller, app/entities, app/template, app/uscasse, app/__init__.py, app/initialize.py, app/main.py.
+
+and for celer_worker,   worker/entites, worker/repositories, worker/usecases, worker/__init__.py, worker/initialize.py, worker/tasks.py, and the celery is going to be run as  celery -A worker.tasks worker --loglevel=info and the app is going to be ran as uvicorn main:asgi_app --host 0.0.0.0 --port 8000
