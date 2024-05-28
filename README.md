@@ -40,8 +40,9 @@ To run the Flask application, use the following command:
 
 ```sh  
 uvicorn main:asgi_app --host 0.0.0.0 --port 8000
-This command starts the Flask application, making it accessible on port 8000.
 ```
+This command starts the Flask application, making it accessible on port 8000.
+
 ## Celery Worker
 
 To run the Celery worker, use the following command:
