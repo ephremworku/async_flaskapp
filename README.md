@@ -38,18 +38,20 @@ The Celery worker code also follows a clean architecture:
 
 To run the Flask application, use the following command:
 
-```sh  
+```bash
 uvicorn main:asgi_app --host 0.0.0.0 --port 8000
+<<<<<<< HEAD
 ```
+=======
+>>>>>>> parent of bb3b8ae...  after edditing the README.md file
 This command starts the Flask application, making it accessible on port 8000.
 
 ## Celery Worker
 
 To run the Celery worker, use the following command:
 
-```sh  
+```bash
 celery -A worker.tasks worker --loglevel=info
-```
 ## Dependencies
 
 The project requires the following dependencies:
@@ -67,13 +69,3 @@ To get started with the project, follow these steps:
 2. Install the required dependencies using `pip install -r requirements.txt`.
 3. Configure any environment variables required for your setup.
 4. Run the Flask application and Celery worker as described above.
- ## To Run the application using docker Container
- after clonning the repository and going to the directory of assync_flaskapp
- ```sh  
- sudo docker-compose up -d
- ```
- and the application will start up and running and at:
- ```sh  
- http://localhost/
- ```
- you will see the form to fill out and submit
